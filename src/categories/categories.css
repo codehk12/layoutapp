@@ -1,0 +1,14 @@
+.Main{
+    padding:25px;
+}
+
+.main-div{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:15px;
+};
+
+.catego{
+    padding: 10px;
+}

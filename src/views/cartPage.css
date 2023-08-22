@@ -1,0 +1,24 @@
+.remove {
+    margin:10px;
+    background-color:darkgrey;
+}
+
+.button {
+    text-align: center;
+}
+
+
+.amount {
+    font-size: 22px;
+    /* text-align: right; */
+    margin: 15px;
+    color: red;
+    font-weight: bold;
+}
+
+.pay {
+    background-color: royalblue;
+    margin: 15px;
+    text-align: center;
+    color:white;
+}

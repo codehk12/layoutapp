@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.search {
+  width: 50%;
+  margin-Top: 10px;
+}
+
+/* .main {
+  padding:10;
+  margin-Top:35px;
+} */
+
+.display{
+  flex-direction: row;
+  justify-content: space-evenly;
+}
