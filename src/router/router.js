@@ -3,7 +3,7 @@ import {createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 import CartPage from "../views/cart.page";
 import App from "../App";
-import Categories from "../categories/categories";
+import Categories from "../views/categories";
 
 
 export default function Router() {

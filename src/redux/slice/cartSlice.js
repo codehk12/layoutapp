@@ -58,16 +58,16 @@ const cartSlice = createSlice({
       }
     },
 
-    selectCategory: (state, action) => {
-      const filteredItems = state.cartItems.filter(
-        (item) => item.category === action.payload
-      );
-      console.log("filter items by category", filteredItems);
-      return {
-        ...state,
-        filteredItems: filteredItems,
-      };
-    },
+    // selectCategory: (state, action) => {
+    //   const filteredItems = state.cartItems.filter(
+    //     (item) => item.category === action.payload
+    //   );
+    //   console.log("filter items by category", filteredItems);
+    //   return {
+    //     ...state,
+    //     filteredItems: filteredItems,
+    //   };
+    // },
   },
 });
 

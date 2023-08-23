@@ -9,6 +9,7 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 
 function Categories() {
   const [data, setData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const Data = async () => {
     try {
@@ -33,6 +34,15 @@ function Categories() {
     navigate("/cart");
   };
 
+  const filterCategories = (item) => {
+    setSelectedCategory(item); // Set the selected category
+  };
+
+  const filteredProducts = selectedCategory
+    ? data.filter((item) => item.category === selectedCategory)
+    : data;
+
+  // console.log(filterCategories);
 
   // <pre> {JSON.stringify(Data, null, 5)} </pre>
 
@@ -42,9 +52,11 @@ function Categories() {
         {data.map((item) => {
           return (
             <Button
+              key={item.category}
               className="catego"
+              type={selectCategory === item.category ? "primary" : "default"}
               style={{ backgroundColor: "grey", fontSize: 18, color: "white" }}
-              onClick={() => dispatch(selectCategory(item.Categories))}
+              onClick={() => filterCategories(item.category)}
             >
               {item}
             </Button>
@@ -61,7 +73,7 @@ function Categories() {
         }}
       >
         <Row gutter={[15]}>
-          {data.map((item) => {
+          {filteredProducts.map((item) => {
             return (
               <Col key={item.id} xs={24} sm={24} md={12} lg={8}>
                 <Card
