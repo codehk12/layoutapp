@@ -1,28 +1,29 @@
 import * as React from "react";
-import {createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CartPage from "../views/cart.page";
 import App from "../App";
 import Categories from "../views/categories";
-
+import CategoryPage from "../views/category";
 
 export default function Router() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App />,
+    },
+    {
+      path: "/cart",
+      element: <CartPage />,
+    },
+    {
+      path: "/categories",
+      element: <Categories />,
+    },
+    {
+      path: "/categories/:category",
+      element: <CategoryPage />,
+    },
+  ]);
 
-    const router = createBrowserRouter([
-        {
-            path:"/",
-            element: <App />
-        },
-        {
-            path: "/cart",
-            element: <CartPage />
-        },
-        {
-            path:"/categories",
-            element:<Categories/>
-        }
-    
-    ])
-
-    return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }

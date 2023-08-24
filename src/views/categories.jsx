@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./categories.css";
-import { Button, Form, Row, Col, Card, Image } from "antd";
+import { Button} from "antd";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addCart, selectCategory } from "../redux/slice/cartSlice";
+// import { addCart } from "../redux/slice/cartSlice";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 function Categories() {
   const [data, setData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  // const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const Data = async () => {
+  const loadCategories = async () => {
     try {
       const res = await axios.get(
         "https://fakestoreapi.com/products/categories"
@@ -23,7 +23,7 @@ function Categories() {
   };
 
   useEffect(() => {
-    Data();
+    loadCategories();
   }, []);
 
   const dispatch = useDispatch();
@@ -34,15 +34,19 @@ function Categories() {
     navigate("/cart");
   };
 
-  const filterCategories = (item) => {
-    setSelectedCategory(item); // Set the selected category
-  };
+  // const handleCategory = () => {
+  //   navigate("/electronics")
+  // }
 
-  const filteredProducts = selectedCategory
-    ? data.filter((item) => item.category === selectedCategory)
-    : data;
+  // const filterCategories = (item) => {
+  //   setSelectedCategory(item);
+  // };
 
-  // console.log(filterCategories);
+  // const filteredProducts = selectedCategory
+  //   ? data.filter((item) => item.category === selectedCategory)
+  //   : data;
+
+  // console.log(filteredProducts);
 
   // <pre> {JSON.stringify(Data, null, 5)} </pre>
 
@@ -52,11 +56,10 @@ function Categories() {
         {data.map((item) => {
           return (
             <Button
-              key={item.category}
               className="catego"
-              type={selectCategory === item.category ? "primary" : "default"}
               style={{ backgroundColor: "grey", fontSize: 18, color: "white" }}
-              onClick={() => filterCategories(item.category)}
+              // onClick={() => filterCategories(item)}
+              // onClick={handleCategory}
             >
               {item}
             </Button>
@@ -67,7 +70,7 @@ function Categories() {
         </Button>
       </div>
 
-      <Form
+      {/* <Form
         style={{
           margin: "10px",
         }}
@@ -99,7 +102,7 @@ function Categories() {
             );
           })}
         </Row>
-      </Form>
+      </Form> */}
     </div>
   );
 }

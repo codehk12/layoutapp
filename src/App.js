@@ -29,7 +29,6 @@ function App() {
   const getData = async () => {
     try {
       const res = await axios.get("https://fakestoreapi.com/products");
-
       setGet(res.data);
     } catch (error) {
       console.log(error);

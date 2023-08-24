@@ -109,7 +109,7 @@ export default function CartPage() {
                       <Button
                         onClick={() => dispatch(removeCart(item.id))}
                         className="remove"
-                      >
+                      > 
                         Remove
                       </Button>
 
